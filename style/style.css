@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i');
+
+* {
+margin: 0;
+padding:0;
+border:0;
+}
+
+html,body, #root, #app, #homepage{
+  height:100%;
+}
+
+body{
+  font-family: 'Lato', sans-serif;
+}
+
+/*header start */
+
+#header{
+  overflow: auto;
+ background: #000;
+ height:50px;
+}
+
+.rightHeaderButtons{
+  float:right;
+  width:10%;
+  cursor: pointer;
+  color:#b7b7b7;
+  margin: 15px 10px 0 0;
+  font-size: 1.4vw;
+}
+
+.rightHeaderButtons:hover{
+  color:white;
+}
+
+.leftHeaderButton{
+  float:left;
+  width:10%;
+  cursor: pointer;
+  color:#b7b7b7;
+  margin: 15px 0 0 50px;
+  font-size: 1.4vw;
+}
+
+.leftHeaderButton:hover{
+  color:white;
+}
+
+/*header end*/
+
+/*homepage start */
+
+#homepage{
+  position: relative;
+}
+
+#grid{
+  float:left;
+  width:80%;
+  margin:2% 0 2% 10%;
+
+}
+
+/* clear fix */
+#grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+#hoveringInfoDiv{
+  position:absolute;
+  border:1px solid black;
+  background:white;
+  padding:2px;
+  font-size: 0.7em;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-item{
+  float:left;
+  margin:10px;
+  width:200px;
+  background: #ffffff;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(102, 102, 102, 0.5);
+  padding:8px;
+}
+
+.imageRequested {
+  display: block;
+  max-width: 100%;
+}
+
+.imgRequestedWrapper{
+  background-image: url('../../style/img/broken-link.png');
+  min-width:140px;
+  background-position: 50% 50% ;
+  background-repeat:   no-repeat ;
+  background-size:     cover;
+}
+
+.imgNameWrapper{
+  background:#f8f8f8;
+  padding: 5px;
+  margin:8px 0;
+  font-size: 0.8em;
+}
+
+.userInfoContainers{
+  overflow: auto;
+background:#f8f8f8;
+padding: 5px;
+}
+
+.userImageWrapper{
+  cursor: pointer;
+  float:left;
+  width:32px;
+  height:32px;
+  background-position: 50% 50% ;
+  background-repeat:   no-repeat ;
+  background-size:     cover;
+}
+
+.userImages{
+  width:100%;
+  height:100%;
+  pointer-events: none;
+}
+
+.likeCounts{
+  float:right;
+ background:#000;
+ border:2px solid #000;
+ color:#b7b7b7;
+ padding:3px;
+ cursor:pointer;
+}
+
+.notAllowed{
+  cursor:not-allowed;
+}
+
+.deletePictureImg{
+  width:20px;
+  cursor:pointer;
+  margin-top: 3px;
+}
+
+.likeCounts:hover{
+  border:2px solid #b7b7b7;
+}
+
+.likeCounts > span{
+  pointer-events: none;
+  vertical-align:middle;
+  margin-left: 2px;
+}
+
+.likeCounts > img{
+  pointer-events: none;
+  width:20px;
+  display: inline;
+  vertical-align:middle;
+}
+
+/* avatar & picture form start */
+
+#avatarFormContainer{
+  position: absolute;
+  width:50%;
+  left:25%;
+  background-color: #f8f8f8;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(102, 102, 102, 0.5);
+  padding:8px;
+  transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+#pictureFormContainer{
+  position: absolute;
+  width:50%;
+  left:25%;
+  background-color: #f8f8f8;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(102, 102, 102, 0.5);
+  padding:8px;
+  transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.formButtons{
+  margin: 5px;
+  padding:3px;
+  background:#000;
+  color:#b7b7b7;
+  cursor: pointer;
+}
+
+.formButtons:hover{
+  color:#000;
+  background:#b7b7b7;
+}
+
+.formInput{
+  height:21px;
+  margin-right: 3px;
+}
+
+
+/*avatar & picture form end */
+
+/*picture form start */
+
+
+
+/*picture form end */
+
+/*homepage end */
+
+/* footer start */
+
+.page-wrap {
+  min-height: 100%;
+  height: auto !important;
+  /* equal to footer height */
+  margin-bottom: -50px;
+
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.footer, .page-wrap:after {
+  height: 50px;/*remember to change page-wrap margin bottom to same*/
+}
+.footer {
+  position:relative;
+  background: #000;
+  clear:both;
+}
+
+.footer > span{
+  font-size: 0.6em;
+  position:absolute;
+  bottom: 0;
+  left:45%;
+  color:#b7b7b7;
+}
+
+.followMeWrapper{
+  float:left;
+  font-size: 0.6em;
+  margin: 3px 0 0 3px;
+  color:#b7b7b7;
+
+}
+
+.followMe{
+  color:#b7b7b7;
+}
+
+.followMeWrapper > h3{
+  font-size: 1em;
+}
+/* footer end */
