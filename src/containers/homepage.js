@@ -12,10 +12,6 @@ import * as actions from '../actions';
     const {getAllPictures} = this.props;
 
     getAllPictures();
-
-
-
-
    }
 
   render() {
