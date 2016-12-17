@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import * as actions from '../actions';
 import Header from '../components/header';
 import Footer from '../components/footer';
-import config from '../../config';
+
 
  class App extends Component {
   componentWillMount(){
@@ -11,13 +11,13 @@ import config from '../../config';
     const options = {
       allowedConnections: ['twitter', 'facebook'],
       auth: {
-         redirectUrl: 'http://localhost:8080',
+         redirectUrl: 'https://pictureboard-rustic.herokuapp.com/',
          responseType: 'token'
     }
     }
     const lock = new Auth0Lock(
-      config.auth0_id,
-      config.auth0_domain,
+      process.env.AUTH0_ID,
+      process.env.AUTH0_DOMAIN,
       options
     );
     this.lock = lock;

@@ -8,3 +8,4 @@ export const HIDE_BROKEN_AVATAR = 'hide_broken_avatar';
 export const HIDE_BROKEN_IMAGE ='hide_broken_image';
 export const HOVER_MESSAGE = 'hover_message';
 export const HOVER_BOX_STYLE = 'hover_box_style';
+export const LOADED = 'loaded';

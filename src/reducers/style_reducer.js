@@ -4,16 +4,18 @@ import {
   HIDE_BROKEN_AVATAR,
   HIDE_BROKEN_IMAGE,
   HOVER_MESSAGE,
-  HOVER_BOX_STYLE
+  HOVER_BOX_STYLE,
+  LOADED
 }from '../actions/types';
 
 const INITIAL_STATE = {
-avatarFormSlide:'-200px',
-pictureFormSlide:'-200px',
+avatarFormSlide:'-250px',
+pictureFormSlide:'-250px',
 hideBrokenAvatar:false,
 hideBrokenImage:false,
 hoverMessage:'',
-hoverBoxStyle:{display:'none'}
+hoverBoxStyle:{display:'none'},
+loaded:false
 }
 export default function(state = INITIAL_STATE,action){
   switch(action.type){
@@ -29,6 +31,8 @@ export default function(state = INITIAL_STATE,action){
       return {...state, hoverMessage:action.payload}
     case HOVER_BOX_STYLE:
       return {...state, hoverBoxStyle:action.payload}
+    case LOADED:
+      return {...state, loaded:action.payload}
   }
 
   return state;

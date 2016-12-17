@@ -9,27 +9,18 @@ import * as actions from '../actions';
  class Homepage extends Component {
 
    componentWillMount(){
-    const {getAllPictures, allPictures} = this.props;
+    const {getAllPictures} = this.props;
 
     getAllPictures();
 
-    const grid = document.getElementById('pictureContainer');
-    var msnry;
 
-if(allPictures.length > 0){
-  imagesLoaded( grid, function() {
-    // init Isotope after all images have loaded
-    msnry = new Masonry( grid, {
-      itemSelector: '.grid-item',
-      columnWidth: '.grid-sizer',
-      percentPosition: true
-    });
-  });
 
-}
+
    }
 
   render() {
+    const {allPictures} = this.props;
+
     return (
       <div id="homepage">
       <AvatarForm avatarFormSlide={this.props.avatarFormSlide}
@@ -54,6 +45,8 @@ if(allPictures.length > 0){
                 hoverBoxStyle={this.props.hoverBoxStyle}
                 triggerHoverBoxStyle={this.props.triggerHoverBoxStyle}
                 triggerUserImages={this.props.triggerUserImages}
+                stopLoader={this.props.stopLoader}
+                loaded={this.props.loaded}
                 />
       </div>
     )
@@ -70,7 +63,8 @@ function mapStateToProps(state){
     hideBrokenAvatar:state.style.hideBrokenAvatar,
     hideBrokenImage:state.style.hideBrokenImage,
     hoverMessage:state.style.hoverMessage,
-    hoverBoxStyle:state.style.hoverBoxStyle
+    hoverBoxStyle:state.style.hoverBoxStyle,
+    loaded:state.style.loaded
   }
 }
 

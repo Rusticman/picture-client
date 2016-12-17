@@ -10,10 +10,11 @@ import {
   HIDE_BROKEN_AVATAR,
   HIDE_BROKEN_IMAGE,
   HOVER_BOX_STYLE,
-  HOVER_MESSAGE
+  HOVER_MESSAGE,
+  LOADED
 } from './types';
 
-const ROOT_URL = 'http://localhost:3000';
+const ROOT_URL = 'https://picture-board-rustic.herokuapp.com';
 
 export function authLogin(userID,name,provider){
   return function(dispatch){
@@ -58,6 +59,10 @@ export function getAllPictures(){
   return function(dispatch){
     axios.get(`${ROOT_URL}/all/pictures`)
     .then(response => {
+       dispatch({
+         type:LOADED,
+         payload:true
+       })
         return dispatch({
           type:ALL_PICTURES,
           payload:response.data.allPictures
@@ -69,7 +74,8 @@ export function getAllPictures(){
 
 export function userAvatar(userAvatarURL){
   return function(dispatch){
-    axios.post(`${ROOT_URL}/add/user/image`,{userImg:userAvatarURL,id:localStorage.getItem('id')})
+    axios.post(`${ROOT_URL}/add/user/image`,{userImg:userAvatarURL,id:localStorage.getItem('id')},{
+        headers: { authorization: localStorage.getItem('token') }})
     .then(response => {
       dispatch({
         type:ALL_PICTURES,
@@ -90,7 +96,7 @@ export function avatarFormSlider(boolean){
   else{
     return{
       type:AVATAR_FORM_SLIDE,
-      payload:'-200px'
+      payload:'-250px'
     }
   }
 }
@@ -106,7 +112,7 @@ export function pictureFormSlider(boolean){
   else{
     return{
       type:PICTURE_FORM_SLIDE,
-      payload:'-200px'
+      payload:'-250px'
     }
   }
 }
@@ -114,7 +120,8 @@ export function pictureFormSlider(boolean){
 
 export function addPicture(imageName,imageURL){
   return function(dispatch){
-    axios.post(`${ROOT_URL}/add/picture`,{id:localStorage.getItem('id'), image:imageURL, imageName:imageName})
+    axios.post(`${ROOT_URL}/add/picture`,{id:localStorage.getItem('id'), image:imageURL, imageName:imageName},{
+        headers: { authorization: localStorage.getItem('token') }})
     .then(response => {
 
       dispatch({
@@ -129,7 +136,8 @@ export function addPicture(imageName,imageURL){
 
 export function voteOnImage(pictureID){
   return function(dispatch){
-    axios.post(`${ROOT_URL}/vote/image`, {id:localStorage.getItem('id'), pictureID:pictureID})
+    axios.post(`${ROOT_URL}/vote/image`, {id:localStorage.getItem('id'), pictureID:pictureID},{
+        headers: { authorization: localStorage.getItem('token') }})
     .then(response => {
          dispatch({
         type:ALL_PICTURES,
@@ -175,7 +183,8 @@ return function(dispatch){
 
 export function deleteImage(pictureID){
   return function(dispatch){
-    axios.delete(`${ROOT_URL}/delete/picture/${pictureID}`)
+    axios.delete(`${ROOT_URL}/delete/picture/${pictureID}`,{
+        headers: { authorization: localStorage.getItem('token') }})
     .then(response => {
 
       dispatch({
