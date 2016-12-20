@@ -11,7 +11,7 @@ import Loader from 'react-loader';
     const options = {
       allowedConnections: ['twitter', 'facebook'],
       auth: {
-         redirectUrl: ' https://pictureboard-rustic.herokuapp.com/',
+         redirectUrl: 'https://pictureboard-rustic.herokuapp.com/',
          responseType: 'token'
     }
     }
