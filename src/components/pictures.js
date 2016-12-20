@@ -1,6 +1,6 @@
 import React from 'react';
 import Masonry from 'react-masonry-component';
-import Loader from 'react-loader';
+
 
 const Pictures = (props) => {
 const {allPictures, authenticated, voted, voteOnImage,
@@ -8,7 +8,7 @@ const {allPictures, authenticated, voted, voteOnImage,
       hideBrokenImage, removeBrokenImage,
        deleteImage, hoverMessage, triggerHoverMessage,
        hoverBoxStyle, triggerHoverBoxStyle,
-      triggerUserImages, stopLoader, loaded} = props;
+      triggerUserImages, stopLoader} = props;
 
 if(allPictures.length > 0){
 
@@ -120,8 +120,7 @@ const masonryOptions = {
 return(
   <div id="grid">
   <div style={hoverBoxStyle} id="hoveringInfoDiv">{hoverMessage}</div>
-  <Loader loaded={loaded}>
-  <Masonry
+    <Masonry
              className={'my-gallery-class'} // default ''
              elementType={'div'} // default 'div'
              options={masonryOptions} // default {}
@@ -130,7 +129,6 @@ return(
          >
              {pictureList}
          </Masonry>
- </Loader>
   </div>
 )
 

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import * as actions from '../actions';
 import Header from '../components/header';
 import Footer from '../components/footer';
-
+import Loader from 'react-loader';
 
  class App extends Component {
   componentWillMount(){
@@ -11,7 +11,7 @@ import Footer from '../components/footer';
     const options = {
       allowedConnections: ['twitter', 'facebook'],
       auth: {
-         redirectUrl: 'https://pictureboard-rustic.herokuapp.com/',
+         redirectUrl: ' https://pictureboard-rustic.herokuapp.com/',
          responseType: 'token'
     }
     }
@@ -40,8 +40,35 @@ this.props.authLock(this.lock);
   render() {
     const childrenWithProps = React.cloneElement(this.props.children, this.props);
 
+  const {loaded} = this.props;
+
+    const options = {
+        lines: 13,
+        length: 20,
+        width: 10,
+        radius: 30,
+        scale: 1.00,
+        corners: 1,
+        color: '#000',
+        opacity: 0.25,
+        rotate: 0,
+        direction: 1,
+        speed: 1,
+        trail: 60,
+        fps: 20,
+        zIndex: 2e9,
+        top: '50%',
+        left: '50%',
+        shadow: false,
+        hwaccel: false,
+        position: 'absolute'
+    };
+
     return (
+
       <div id="app">
+      <Loader loaded={loaded} options={options} id="loader">
+      </Loader>
         <div className="page-wrap">
         <Header authenticated={this.props.authenticated}
                 lock={this.props.lock}
@@ -52,7 +79,9 @@ this.props.authLock(this.lock);
           {childrenWithProps}
         </div>
         <Footer />
+
       </div>
+
     );
   }
 }
@@ -60,7 +89,8 @@ this.props.authLock(this.lock);
 function mapStateToProps(state){
   return{
     authenticated:state.auth.authenticated,
-    lock:state.auth.lock
+    lock:state.auth.lock,
+    loaded:state.style.loaded
   }
 }
 

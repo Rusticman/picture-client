@@ -17,6 +17,8 @@ import * as actions from '../actions';
   render() {
     const {allPictures} = this.props;
 
+
+
     return (
       <div id="homepage">
       <AvatarForm avatarFormSlide={this.props.avatarFormSlide}
@@ -26,6 +28,7 @@ import * as actions from '../actions';
       <AddPictureForm pictureFormSlide={this.props.pictureFormSlide}
                       pictureFormSlider={this.props.pictureFormSlider}
                       addPicture={this.props.addPicture}/>
+
       <Pictures allPictures={this.props.allPictures}
                 getAllPictures={this.props.getAllPictures}
                 authenticated={this.props.authenticated}
