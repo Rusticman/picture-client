@@ -5,13 +5,14 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import Loader from 'react-loader';
 
+
  class App extends Component {
   componentWillMount(){
 
     const options = {
       allowedConnections: ['twitter', 'facebook'],
       auth: {
-         redirectUrl: 'https://pictureboard-rustic.herokuapp.com/',
+         redirectUrl: 'https://picture-board-rustic.herokuapp.com/',
          responseType: 'token'
     }
     }

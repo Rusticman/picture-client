@@ -32,7 +32,8 @@ isUserAuthenticated(){
     )
   }
   else{
-    return <div onClick={this.showLock.bind(this)} className="rightHeaderButtons">login</div>
+    return [<div key="headerButton5" onClick={this.showLock.bind(this)} className="rightHeaderButtons">login</div>,
+            <div key="headerButton4" onClick={this.showAllPictures.bind(this)} className="leftHeaderButton">all pictures</div>]
   }
 }
 

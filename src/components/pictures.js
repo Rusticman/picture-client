@@ -72,6 +72,8 @@ const showUserImages = (e) => {
   const reg = /(\d+)/;
   const index = Number(reg.exec(e.target.className)[0]);
   const userID = allPictures[index].userID;
+  const style = {display:'none'};
+triggerHoverBoxStyle(style);//removes info box to 
   triggerUserImages(allPictures,userID);//filters only user's images
 }
 
